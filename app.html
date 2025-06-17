@@ -3,909 +3,792 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Tiendita - Gestión Inteligente para Emprendedores</title>
-    <meta name="description" content="La aplicación web gratuita que todo pequeño comerciante necesita. Controla inventario, registra ventas y calcula ganancias de forma simple y efectiva.">
-    <meta name="keywords" content="tiendita, inventario, ventas, emprendedor, negocio, gestión, punto de venta">
-    
-    <!-- Open Graph para redes sociales -->
-    <meta property="og:title" content="Mi Tiendita - Gestión Inteligente">
-    <meta property="og:description" content="Aplicación gratuita para gestionar tu tiendita: inventario, ventas y ganancias en una sola app.">
-    <meta property="og:type" content="website">
-    
+    <title>Mi Tiendita</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            overflow-x: hidden;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Header con navegación */
-        header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-        }
-        
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-        }
-        
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        
-        .nav-links a:hover {
-            transform: translateY(-2px);
-        }
-        
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: white;
-            transition: width 0.3s ease;
-        }
-        
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 120px 0 80px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.05)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.05)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.03)"/><circle cx="10" cy="60" r="0.5" fill="rgba(255,255,255,0.03)"/><circle cx="90" cy="40" r="0.5" fill="rgba(255,255,255,0.03)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>') repeat;
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-        
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            animation: fadeInUp 1s ease;
-        }
-        
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 40px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            animation: fadeInUp 1s ease 0.2s both;
-        }
-        
-        .cta-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-            animation: fadeInUp 1s ease 0.4s both;
-        }
-        
-        .btn {
-            padding: 15px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-        
-        .btn-primary {
-            background: #10b981;
-            color: white;
-            border: 2px solid #10b981;
-        }
-        
-        .btn-primary:hover {
-            background: #059669;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
-        }
-        
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-        
-        .btn-secondary:hover {
-            background: white;
-            color: #667eea;
-            transform: translateY(-3px);
-        }
-        
-        /* Features Section */
-        .features {
-            padding: 80px 0;
-            background: #f8fafc;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-        
-        .section-title h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: #1e293b;
-        }
-        
-        .section-title p {
-            font-size: 1.2rem;
-            color: #64748b;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
-        }
-        
-        .feature-card {
-            background: white;
-            padding: 40px 30px;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 4px 25px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-        }
-        
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            display: block;
-        }
-        
-        .feature-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: #1e293b;
-        }
-        
-        .feature-card p {
-            color: #64748b;
-            line-height: 1.6;
-        }
-        
-        /* Demo Section */
-        .demo {
-            padding: 80px 0;
-            background: white;
-        }
-        
-        .demo-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-        
-        .demo-text h2 {
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-            color: #1e293b;
-        }
-        
-        .demo-text p {
-            font-size: 1.1rem;
-            margin-bottom: 30px;
-            color: #64748b;
-            line-height: 1.7;
-        }
-        
-        .demo-phone {
-            position: relative;
-            max-width: 300px;
-            margin: 0 auto;
-        }
-        
-        .phone-mockup {
-            width: 100%;
-            height: auto;
-            border-radius: 30px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            background: #000;
-            padding: 20px;
-        }
-        
-        .phone-screen {
-            width: 100%;
-            aspect-ratio: 9/19.5;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
-        
-        /* Manual Section */
-        .manual {
-            padding: 80px 0;
-            background: #f8fafc;
-        }
-        
-        .manual-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            margin-top: 60px;
-        }
-        
-        .manual-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
-        }
-        
-        .manual-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-        }
-        
-        .manual-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 25px;
-            text-align: center;
-        }
-        
-        .manual-header h3 {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-        }
-        
-        .manual-body {
-            padding: 25px;
-        }
-        
-        .manual-steps {
-            list-style: none;
-            counter-reset: step;
-        }
-        
-        .manual-steps li {
-            counter-increment: step;
-            margin-bottom: 15px;
-            padding-left: 40px;
-            position: relative;
-            color: #4a5568;
-        }
-        
-        .manual-steps li::before {
-            content: counter(step);
-            position: absolute;
-            left: 0;
-            top: 0;
-            background: #667eea;
-            color: white;
-            width: 25px;
-            height: 25px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            font-weight: bold;
-        }
-        
-        /* Testimonials */
-        .testimonials {
-            padding: 80px 0;
-            background: white;
-        }
-        
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
-        }
-        
-        .testimonial {
-            background: #f8fafc;
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-            position: relative;
-        }
-        
-        .testimonial::before {
-            content: '"';
-            font-size: 4rem;
-            color: #667eea;
-            position: absolute;
-            top: 10px;
-            left: 20px;
-            opacity: 0.3;
-        }
-        
-        .testimonial p {
-            font-style: italic;
-            margin-bottom: 20px;
-            color: #4a5568;
-        }
-        
-        .testimonial-author {
-            font-weight: bold;
-            color: #1e293b;
-        }
-        
-        /* CTA Section */
-        .final-cta {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 80px 0;
-            text-align: center;
-        }
-        
-        .final-cta h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-        
-        .final-cta p {
-            font-size: 1.2rem;
-            margin-bottom: 40px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        /* Footer */
-        footer {
-            background: #1e293b;
-            color: white;
-            padding: 40px 0;
-            text-align: center;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 30px;
-        }
-        
-        .footer-section h3 {
-            margin-bottom: 20px;
-            color: #67e8f9;
-        }
-        
-        .footer-section a {
-            color: #94a3b8;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 10px;
-            transition: color 0.3s ease;
-        }
-        
-        .footer-section a:hover {
-            color: white;
-        }
-        
-        .footer-bottom {
-            border-top: 1px solid #374151;
-            padding-top: 30px;
-            color: #94a3b8;
-        }
-        
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-        
-        .floating {
-            animation: float 3s ease-in-out infinite;
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero p {
-                font-size: 1.1rem;
-            }
-            
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .demo-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            
-            .section-title h2 {
-                font-size: 2rem;
-            }
-            
-            .container {
-                padding: 0 15px;
-            }
-        }
-        
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        /* Hide scrollbar but keep functionality */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-        
-        ::-webkit-scrollbar-thumb {
-            background: #667eea;
-            border-radius: 4px;
-        }
-        
-        ::-webkit-scrollbar-thumb:hover {
-            background: #5a67d8;
-        }
+        * { box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; margin: 0; background: #f3f4f6; }
+        .navbar { background: #2563eb; color: white; padding: 12px; text-align: center; font-weight: bold; }
+        .container { padding: 16px; padding-bottom: 80px; }
+        .card { background: white; padding: 16px; border-radius: 12px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .btn { padding: 12px 20px; border-radius: 8px; border: none; font-weight: bold; cursor: pointer; font-size: 16px; width: 100%; }
+        .btn-primary { background: #3b82f6; color: white; }
+        .btn-success { background: #10b981; color: white; }
+        .btn-danger { background: #ef4444; color: white; }
+        .btn-secondary { background: #6b7280; color: white; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .form-group { margin-bottom: 12px; }
+        .form-label { display: block; font-weight: bold; margin-bottom: 4px; }
+        .form-input { width: 100%; padding: 10px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 16px; }
+        .modal { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 100; }
+        .modal.active { display: flex; align-items: center; justify-content: center; }
+        .modal-content { background: white; padding: 20px; border-radius: 12px; width: 90%; max-width: 400px; max-height: 80vh; overflow-y: auto; }
+        .bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; background: white; border-top: 1px solid #e5e7eb; padding: 12px; }
+        .sale-item, .product-item { background: #f3f4f6; padding: 12px; border-radius: 8px; margin-bottom: 8px; }
+        .flex-between { display: flex; justify-content: space-between; align-items: center; }
+        .text-success { color: #10b981; }
+        .text-danger { color: #ef4444; }
+        .hide { display: none; }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <nav class="container">
-            <div class="logo">
-                🏪 Mi Tiendita
-            </div>
-            <ul class="nav-links">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#caracteristicas">Características</a></li>
-                <li><a href="#demo">Demo</a></li>
-                <li><a href="#manual">Manual</a></li>
-                <li><a href="#testimonios">Testimonios</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <!-- Hero Section -->
-    <section id="inicio" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>🏪 Mi Tiendita</h1>
-                <p>La aplicación web gratuita que todo emprendedor necesita para gestionar su negocio de forma inteligente y profesional</p>
-                <div class="cta-buttons">
-                    <a href="#demo" class="btn btn-primary">
-                        🚀 Probar Gratis
-                    </a>
-                    <a href="#manual" class="btn btn-secondary">
-                        📖 Ver Manual
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section id="caracteristicas" class="features">
-        <div class="container">
-            <div class="section-title">
-                <h2>¿Por qué elegir Mi Tiendita?</h2>
-                <p>Diseñada especialmente para pequeños comerciantes que buscan profesionalizar su negocio sin complicaciones</p>
+    <div class="navbar" id="navbar"></div>
+    
+    <div class="container">
+        <!-- Vista Principal -->
+        <div id="mainView">
+            <div class="card" style="text-align: center;">
+                <h1 style="font-size: 24px; margin: 0 0 8px 0;">¡Bienvenido Emprendedor!</h1>
+                <p style="color: #6b7280; margin: 0;">Que tengas un excelente día de ventas, no te rindas</p>
             </div>
             
-            <div class="features-grid">
-                <div class="feature-card">
-                    <span class="feature-icon">📦</span>
-                    <h3>Control de Inventario</h3>
-                    <p>Gestiona hasta 50 productos con stock, precios, costos y fechas de vencimiento. Todo organizado alfabéticamente.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <span class="feature-icon">💰</span>
-                    <h3>Registro de Ventas</h3>
-                    <p>Registra ventas en segundos. El sistema actualiza automáticamente el stock y calcula tus ganancias del día.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <span class="feature-icon">🧮</span>
-                    <h3>Calculadora de Márgenes</h3>
-                    <p>Calcula márgenes de ganancia al instante. Toma mejores decisiones de precios para maximizar tus utilidades.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <span class="feature-icon">📊</span>
-                    <h3>Reportes Diarios</h3>
-                    <p>Ve tu resumen del día: total de ventas, ganancias y productos vendidos. Todo actualizado en tiempo real.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <span class="feature-icon">💾</span>
-                    <h3>Backup Automático</h3>
-                    <p>Tus datos se guardan automáticamente. Exporta e importa tu inventario con un solo clic para mayor seguridad.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <span class="feature-icon">📱</span>
-                    <h3>100% Móvil</h3>
-                    <p>Funciona perfecto en cualquier celular o tablet. No necesitas instalar nada, solo abrir el navegador.</p>
+            <div class="grid-2" style="margin-bottom: 16px;">
+                <button class="btn btn-success" onclick="showView('sales')" style="padding: 30px;">
+                    <div style="font-size: 32px;">💰</div>
+                    <div>Registrar Venta</div>
+                </button>
+                <button class="btn btn-primary" onclick="showView('inventory')" style="padding: 30px;">
+                    <div style="font-size: 32px;">📦</div>
+                    <div>Ver Inventario</div>
+                </button>
+            </div>
+            
+            <div class="card">
+                <h2 style="font-size: 18px; margin: 0 0 12px 0;">📊 Resumen del Día</h2>
+                <div class="flex-between"><span>Ventas:</span><strong>$<span id="totalSales">0.00</span></strong></div>
+                <div class="flex-between"><span>Ganancias:</span><strong class="text-success">$<span id="totalProfit">0.00</span></strong></div>
+                <div class="flex-between"><span>Productos:</span><strong id="totalProducts">0</strong></div>
+            </div>
+            
+            <div class="card">
+                <h2 style="font-size: 18px; margin: 0 0 12px 0;">🧮 Calculadora</h2>
+                <form onsubmit="return false;">
+                    <div class="grid-2" style="grid-template-columns: 1fr 1fr 1fr; margin-bottom: 8px;">
+                        <input type="number" id="calcCost" placeholder="Costo" class="form-input" oninput="calculate()">
+                        <input type="number" id="calcPrice" placeholder="Precio" class="form-input" oninput="calculate()">
+                        <input type="number" id="calcQty" placeholder="Cant" value="1" class="form-input" oninput="calculate()">
+                    </div>
+                </form>
+                <div id="calcResult" class="hide" style="background: #f3f4f6; padding: 8px; border-radius: 6px; text-align: center;">
+                    <strong>Margen: <span id="calcMargin">0</span>%</strong> | 
+                    <strong class="text-success">Ganancia: $<span id="calcProfit">0.00</span></strong>
                 </div>
             </div>
+            
+            <button class="btn" onclick="enviarFeedback()" style="margin-top: 16px; background: #25D366; color: white;">
+                💬 Enviar Comentarios por WhatsApp
+            </button>
         </div>
-    </section>
-
-    <!-- Demo Section -->
-    <section id="demo" class="demo">
-        <div class="container">
-            <div class="demo-content">
-                <div class="demo-text">
-                    <h2>Prueba Mi Tiendita ahora mismo</h2>
-                    <p>No necesitas registrarte ni dar datos personales. La aplicación funciona completamente en tu dispositivo y todos tus datos quedan privados y seguros.</p>
-                    <p>Incluye productos de ejemplo para que puedas probar todas las funcionalidades desde el primer momento.</p>
-                    <a href="[https://davinho-vyo.github.io/AbarroteraNegocio/]" class="btn btn-primary" target="_blank">
-                        🚀 Abrir Mi Tiendita
-                    </a>
-                </div>
-                <div class="demo-phone floating">
-                    <div class="phone-mockup">
-                        <div class="phone-screen">
-                            <h3>🏪 Mi Tiendita</h3>
-                            <p>💰 Ventas: $1,245.00</p>
-                            <p>💚 Ganancias: $387.50</p>
-                            <p>📦 Productos: 23</p>
-                            <div style="margin-top: 20px;">
-                                <div style="background: rgba(255,255,255,0.2); padding: 10px; border-radius: 10px; margin: 10px 0;">
-                                    💰 Registrar Venta
-                                </div>
-                                <div style="background: rgba(255,255,255,0.2); padding: 10px; border-radius: 10px;">
-                                    📦 Ver Inventario
-                                </div>
-                            </div>
+        
+        <!-- Vista de Ventas -->
+        <div id="salesView" class="hide">
+            <h1 style="font-size: 20px; margin: 0 0 16px 0;">💰 Registrar Venta</h1>
+            
+            <div class="card">
+                <form id="saleForm" onsubmit="registerSale(event)">
+                    <div class="form-group">
+                        <label class="form-label">Producto:</label>
+                        <select id="saleProduct" class="form-input" onchange="updateSaleTotal()" required>
+                            <option value="">Selecciona...</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Cantidad:</label>
+                        <div class="grid-2" style="grid-template-columns: auto 1fr auto;">
+                            <button type="button" class="btn btn-danger" onclick="changeSaleQty(-1)">-</button>
+                            <input type="number" id="saleQty" value="1" min="1" class="form-input" style="text-align: center;" oninput="updateSaleTotal()">
+                            <button type="button" class="btn btn-success" onclick="changeSaleQty(1)">+</button>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Manual Section -->
-    <section id="manual" class="manual">
-        <div class="container">
-            <div class="section-title">
-                <h2>Manual de Usuario</h2>
-                <p>Aprende a usar todas las funciones de Mi Tiendita en minutos</p>
+                    
+                    <div style="background: #d1fae5; padding: 12px; border-radius: 8px; margin-bottom: 16px; text-align: center;">
+                        <strong style="font-size: 20px;">Total: $<span id="saleTotal">0.00</span></strong>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-success">Registrar Venta</button>
+                </form>
             </div>
             
-            <div class="manual-grid">
-                <div class="manual-card">
-                    <div class="manual-header">
-                        <span style="font-size: 2rem;">🏠</span>
-                        <h3>Comenzando</h3>
-                        <p>Primeros pasos</p>
-                    </div>
-                    <div class="manual-body">
-                        <ol class="manual-steps">
-                            <li>Abre Mi Tiendita en tu navegador</li>
-                            <li>Verás productos de ejemplo ya cargados</li>
-                            <li>Explora el dashboard con tu resumen del día</li>
-                            <li>Usa la calculadora para probar márgenes</li>
-                        </ol>
-                    </div>
-                </div>
-                
-                <div class="manual-card">
-                    <div class="manual-header">
-                        <span style="font-size: 2rem;">📦</span>
-                        <h3>Gestión de Inventario</h3>
-                        <p>Productos y stock</p>
-                    </div>
-                    <div class="manual-body">
-                        <ol class="manual-steps">
-                            <li>Ve a "Ver Inventario"</li>
-                            <li>Haz clic en "+ Nuevo" para agregar productos</li>
-                            <li>Llena: nombre, stock, costo, precio y vencimiento</li>
-                            <li>Usa los íconos ✏️ y 🗑️ para editar o eliminar</li>
-                        </ol>
-                    </div>
-                </div>
-                
-                <div class="manual-card">
-                    <div class="manual-header">
-                        <span style="font-size: 2rem;">💰</span>
-                        <h3>Registrar Ventas</h3>
-                        <p>Proceso de venta</p>
-                    </div>
-                    <div class="manual-body">
-                        <ol class="manual-steps">
-                            <li>Ve a "Registrar Venta"</li>
-                            <li>Selecciona el producto de la lista</li>
-                            <li>Ajusta la cantidad con los botones + y -</li>
-                            <li>Verifica el total y haz clic en "Registrar Venta"</li>
-                        </ol>
-                    </div>
-                </div>
-                
-                <div class="manual-card">
-                    <div class="manual-header">
-                        <span style="font-size: 2rem;">🧮</span>
-                        <h3>Calculadora de Márgenes</h3>
-                        <p>Calcula ganancias</p>
-                    </div>
-                    <div class="manual-body">
-                        <ol class="manual-steps">
-                            <li>En el dashboard, ve la sección "Calculadora"</li>
-                            <li>Ingresa el costo de tu producto</li>
-                            <li>Ingresa el precio de venta</li>
-                            <li>Ve automáticamente el margen % y ganancia total</li>
-                        </ol>
-                    </div>
-                </div>
-                
-                <div class="manual-card">
-                    <div class="manual-header">
-                        <span style="font-size: 2rem;">💾</span>
-                        <h3>Backup de Datos</h3>
-                        <p>Seguridad y respaldo</p>
-                    </div>
-                    <div class="manual-body">
-                        <ol class="manual-steps">
-                            <li>En inventario, ve la sección amarilla "Backup"</li>
-                            <li>Haz clic en "Copiar Inventario" para hacer backup</li>
-                            <li>Guarda el texto en WhatsApp o Notas</li>
-                            <li>Usa "Restaurar Inventario" para recuperar datos</li>
-                        </ol>
-                    </div>
-                </div>
-                
-                <div class="manual-card">
-                    <div class="manual-header">
-                        <span style="font-size: 2rem;">📸</span>
-                        <h3>Captura de Ventas</h3>
-                        <p>Reportes visuales</p>
-                    </div>
-                    <div class="manual-body">
-                        <ol class="manual-steps">
-                            <li>En "Registrar Venta", baja hasta abajo</li>
-                            <li>Haz clic en "📸 Capturar Ventas del Día"</li>
-                            <li>Se descarga automáticamente una imagen</li>
-                            <li>Comparte tu reporte por WhatsApp o redes sociales</li>
-                        </ol>
-                    </div>
-                </div>
+            <div class="card">
+                <h2 style="font-size: 16px; margin: 0 0 12px 0;">Ventas de Hoy</h2>
+                <div id="salesList"></div>
+                <button class="btn" onclick="capturarVentas()" style="margin-top: 12px; background: #8b5cf6; color: white; font-size: 14px;">
+                    📸 Capturar Ventas del Día
+                </button>
             </div>
         </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section id="testimonios" class="testimonials">
-        <div class="container">
-            <div class="section-title">
-                <h2>Lo que dicen nuestros usuarios</h2>
-                <p>Emprendedores reales que han transformado su negocio con Mi Tiendita</p>
+        
+        <!-- Vista de Inventario -->
+        <div id="inventoryView" class="hide">
+            <div class="flex-between" style="margin-bottom: 16px;">
+                <h1 style="font-size: 20px; margin: 0;">📦 Inventario</h1>
+                <button class="btn btn-primary" onclick="showProductModal()" style="width: auto; padding: 8px 16px;">+ Nuevo</button>
             </div>
             
-            <div class="testimonials-grid">
-                <div class="testimonial">
-                    <p>Antes llevaba todo en libretas y siempre me hacía bolas. Ahora con Mi Tiendita tengo todo organizado y sé exactamente cuánto gano cada día.</p>
-                    <div class="testimonial-author">- María González, Tienda de Abarrotes</div>
+            <p style="color: #6b7280; margin: 0 0 12px 0;">Productos: <span id="productCount">0</span>/50</p>
+            
+            <!-- Botones de Backup -->
+            <div class="card" style="background: #fef3c7; border: 1px solid #fbbf24;">
+                <h3 style="font-size: 14px; margin: 0 0 6px 0;">💾 Backup de Inventario</h3>
+                <div class="grid-2" style="gap: 6px;">
+                    <button class="btn btn-secondary" onclick="exportarInventario()" style="background: #059669; padding: 8px 12px; font-size: 14px;">
+                        📋 Copiar Inventario
+                    </button>
+                    <button class="btn btn-secondary" onclick="mostrarImportDialog()" style="background: #dc2626; padding: 8px 12px; font-size: 14px;">
+                        📥 Restaurar Inventario
+                    </button>
                 </div>
-                
-                <div class="testimonial">
-                    <p>Lo que más me gusta es que no necesito internet y todos mis datos están seguros en mi teléfono. La calculadora de márgenes me ayudó a subir mis precios correctamente.</p>
-                    <div class="testimonial-author">- Carlos Rodríguez, Minisuper</div>
-                </div>
-                
-                <div class="testimonial">
-                    <p>Súper fácil de usar. Mi esposa que no es muy de tecnología la aprendió a usar en 10 minutos. El backup nos salvó cuando se nos descompuso el teléfono.</p>
-                    <div class="testimonial-author">- Roberto Martínez, Tienda Familiar</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Final CTA -->
-    <section class="final-cta">
-        <div class="container">
-            <h2>¿Listo para profesionalizar tu tiendita?</h2>
-            <p>Únete a cientos de emprendedores que ya transformaron su forma de trabajar. Es gratis, fácil y no necesitas registrarte.</p>
-            <a href="[https://davinho-vyo.github.io/AbarroteraNegocio/]" class="btn btn-primary" target="_blank">
-                🚀 Comenzar Ahora - Es Gratis
-            </a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Mi Tiendita</h3>
-                    <p>La herramienta que todo emprendedor necesita para gestionar su negocio de forma inteligente.</p>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Enlaces Rápidos</h3>
-                    <a href="#inicio">Inicio</a>
-                    <a href="#caracteristicas">Características</a>
-                    <a href="#demo">Demo</a>
-                    <a href="#manual">Manual</a>
-                    <a href="#testimonios">Testimonios</a>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Soporte</h3>
-                    <a href="https://wa.me/525564290144" target="_blank">💬 WhatsApp</a>
-                    <a href="mailto:tienda.appweb369@gmail.com">📧 Email</a>
-                    <a href="#manual">📖 Manual de Usuario</a>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Síguenos</h3>
-                    <a href="#" target="_blank">📘 Facebook</a>
-                    <a href="#" target="_blank">📷 Instagram</a>
-                    <a href="#" target="_blank">🐦 Twitter</a>
-                </div>
+                <p style="font-size: 11px; color: #78716c; margin: 6px 0 0 0;">
+                    Usa estos botones antes de actualizar la app
+                </p>
             </div>
             
-            <div class="footer-bottom">
-                <p>&copy; 2025 Mi Tiendita. Todos los derechos reservados. Hecho con ❤️ para emprendedores mexicanos.</p>
-            </div>
+            <div id="inventoryList"></div>
         </div>
-    </footer>
-
+    </div>
+    
+    <!-- Modal de Producto -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <h2 id="modalTitle" style="margin: 0 0 16px 0;">Nuevo Producto</h2>
+            <form id="productForm" onsubmit="saveProduct(event)">
+                <input type="hidden" id="productId">
+                
+                <div class="form-group">
+                    <label class="form-label">Nombre:</label>
+                    <input type="text" id="productName" class="form-input" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Stock:</label>
+                    <input type="number" id="productStock" class="form-input" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Costo:</label>
+                    <input type="number" id="productCost" step="0.01" class="form-input" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Precio:</label>
+                    <input type="number" id="productPrice" step="0.01" class="form-input" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Vencimiento:</label>
+                    <input type="date" id="productExpiry" class="form-input" required>
+                </div>
+                
+                <div class="grid-2">
+                    <button type="submit" class="btn btn-success">Guardar</button>
+                    <button type="button" class="btn btn-secondary" onclick="hideProductModal()">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Navegación inferior -->
+    <div id="bottomNav" class="bottom-nav hide">
+        <button class="btn btn-primary" onclick="showView('main')">🏠 Inicio</button>
+    </div>
+    
     <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Add scroll effect to header
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.backgroundColor = 'rgba(102, 126, 234, 0.95)';
-            } else {
-                header.style.backgroundColor = 'transparent';
-            }
-        });
-
-        // Animate elements on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+        // Estado de la aplicación
+        let state = {
+            inventory: [],
+            sales: [],
+            currentView: 'main'
         };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe all cards and sections
-        document.querySelectorAll('.feature-card, .manual-card, .testimonial').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'all 0.6s ease';
-            observer.observe(el);
+        
+        // Inicializar
+        document.addEventListener('DOMContentLoaded', function() {
+            loadData();
+            updateDate();
+            updateSummary();
+            renderInventory();
+            renderSales();
+            setInterval(checkMidnight, 60000);
         });
+        
+        // Funciones de almacenamiento
+        function loadData() {
+            try {
+                // Cargar inventario
+                const savedInventory = localStorage.getItem('tiendita_inventory');
+                if (savedInventory) {
+                    state.inventory = JSON.parse(savedInventory);
+                } else {
+                    // Datos iniciales
+                    state.inventory = [
+                        { id: 1, name: 'Coca-Cola 600ml', stock: 24, cost: 12, price: 18, expiry: '2025-08-15' },
+                        { id: 2, name: 'Sabritas Original', stock: 15, cost: 8, price: 15, expiry: '2025-07-20' },
+                        { id: 3, name: 'Pan Bimbo Grande', stock: 8, cost: 25, price: 35, expiry: '2025-06-25' },
+                        { id: 4, name: 'Leche Lala 1L', stock: 12, cost: 18, price: 25, expiry: '2025-06-20' },
+                        { id: 5, name: 'Huevos San Juan', stock: 30, cost: 35, price: 50, expiry: '2025-07-01' }
+                    ];
+                    saveInventory();
+                }
+                
+                // Cargar ventas del día
+                const today = new Date().toDateString();
+                const savedSales = localStorage.getItem('tiendita_sales_' + today);
+                if (savedSales) {
+                    state.sales = JSON.parse(savedSales);
+                }
+            } catch (e) {
+                console.error('Error cargando datos:', e);
+            }
+        }
+        
+        function saveInventory() {
+            try {
+                localStorage.setItem('tiendita_inventory', JSON.stringify(state.inventory));
+            } catch (e) {
+                console.error('Error guardando inventario:', e);
+            }
+        }
+        
+        function saveSales() {
+            try {
+                const today = new Date().toDateString();
+                localStorage.setItem('tiendita_sales_' + today, JSON.stringify(state.sales));
+            } catch (e) {
+                console.error('Error guardando ventas:', e);
+            }
+        }
+        
+        // Funciones de UI
+        function showView(view) {
+            document.getElementById('mainView').classList.toggle('hide', view !== 'main');
+            document.getElementById('salesView').classList.toggle('hide', view !== 'sales');
+            document.getElementById('inventoryView').classList.toggle('hide', view !== 'inventory');
+            document.getElementById('bottomNav').classList.toggle('hide', view === 'main');
+            
+            state.currentView = view;
+            
+            if (view === 'sales') {
+                updateSaleProductList();
+            }
+        }
+        
+        function updateDate() {
+            const date = new Date().toLocaleDateString('es-MX', { 
+                weekday: 'long', 
+                day: 'numeric', 
+                month: 'long' 
+            });
+            document.getElementById('navbar').textContent = date;
+        }
+        
+        function updateSummary() {
+            const summary = state.sales.reduce((acc, sale) => {
+                acc.totalSales += sale.total;
+                acc.totalProfit += (sale.total - (sale.cost * sale.quantity));
+                acc.totalProducts += sale.quantity;
+                return acc;
+            }, { totalSales: 0, totalProfit: 0, totalProducts: 0 });
+            
+            document.getElementById('totalSales').textContent = summary.totalSales.toFixed(2);
+            document.getElementById('totalProfit').textContent = summary.totalProfit.toFixed(2);
+            document.getElementById('totalProducts').textContent = summary.totalProducts;
+        }
+        
+        // Calculadora
+        function calculate() {
+            const cost = parseFloat(document.getElementById('calcCost').value) || 0;
+            const price = parseFloat(document.getElementById('calcPrice').value) || 0;
+            const qty = parseInt(document.getElementById('calcQty').value) || 1;
+            
+            if (cost > 0 && price > 0) {
+                const margin = ((price - cost) / cost) * 100;
+                const profit = (price - cost) * qty;
+                
+                document.getElementById('calcMargin').textContent = margin.toFixed(1);
+                document.getElementById('calcProfit').textContent = profit.toFixed(2);
+                document.getElementById('calcResult').classList.remove('hide');
+            } else {
+                document.getElementById('calcResult').classList.add('hide');
+            }
+        }
+        
+        // Ventas
+        function updateSaleProductList() {
+            const select = document.getElementById('saleProduct');
+            select.innerHTML = '<option value="">Selecciona...</option>';
+            
+            state.inventory
+                .filter(p => p.stock > 0)
+                .sort((a, b) => a.name.localeCompare(b.name))
+                .forEach(product => {
+                    const option = document.createElement('option');
+                    option.value = product.id;
+                    option.textContent = `${product.name} - $${product.price} (${product.stock})`;
+                    select.appendChild(option);
+                });
+        }
+        
+        function updateSaleTotal() {
+            const productId = parseInt(document.getElementById('saleProduct').value);
+            const quantity = parseInt(document.getElementById('saleQty').value) || 0;
+            
+            if (productId) {
+                const product = state.inventory.find(p => p.id === productId);
+                if (product) {
+                    const total = product.price * quantity;
+                    document.getElementById('saleTotal').textContent = total.toFixed(2);
+                }
+            } else {
+                document.getElementById('saleTotal').textContent = '0.00';
+            }
+        }
+        
+        function changeSaleQty(delta) {
+            const input = document.getElementById('saleQty');
+            const newValue = Math.max(1, parseInt(input.value) + delta);
+            input.value = newValue;
+            updateSaleTotal();
+        }
+        
+        function registerSale(event) {
+            event.preventDefault();
+            
+            const productId = parseInt(document.getElementById('saleProduct').value);
+            const quantity = parseInt(document.getElementById('saleQty').value);
+            
+            const product = state.inventory.find(p => p.id === productId);
+            if (!product) return;
+            
+            if (product.stock < quantity) {
+                alert('Stock insuficiente');
+                return;
+            }
+            
+            const sale = {
+                id: Date.now(),
+                productName: product.name,
+                quantity: quantity,
+                price: product.price,
+                cost: product.cost,
+                total: product.price * quantity,
+                time: new Date().toLocaleTimeString('es-MX', { hour: '2-digit', minute: '2-digit' })
+            };
+            
+            state.sales.push(sale);
+            product.stock -= quantity;
+            
+            saveInventory();
+            saveSales();
+            updateSummary();
+            renderSales();
+            
+            // Limpiar formulario
+            document.getElementById('saleForm').reset();
+            document.getElementById('saleQty').value = 1;
+            updateSaleTotal();
+            updateSaleProductList();
+            
+            alert('Venta registrada');
+        }
+        
+        function renderSales() {
+            const container = document.getElementById('salesList');
+            
+            if (state.sales.length === 0) {
+                container.innerHTML = '<p style="text-align: center; color: #6b7280;">Sin ventas</p>';
+                return;
+            }
+            
+            container.innerHTML = state.sales.map(sale => `
+                <div class="sale-item">
+                    <div class="flex-between">
+                        <strong>${sale.productName}</strong>
+                        <span>$${sale.total.toFixed(2)}</span>
+                    </div>
+                    <div style="font-size: 12px; color: #6b7280;">
+                        ${sale.quantity} unidades • ${sale.time}
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        // Inventario
+        function renderInventory() {
+            const container = document.getElementById('inventoryList');
+            document.getElementById('productCount').textContent = state.inventory.length;
+            
+            if (state.inventory.length === 0) {
+                container.innerHTML = '<p style="text-align: center; color: #6b7280;">Sin productos</p>';
+                return;
+            }
+            
+            // Ordenar alfabéticamente por nombre
+            const sortedInventory = [...state.inventory].sort((a, b) => a.name.localeCompare(b.name));
+            
+            container.innerHTML = sortedInventory.map(product => `
+                <div class="product-item">
+                    <div class="flex-between">
+                        <strong>${product.name}</strong>
+                        <div>
+                            <button onclick="editProduct(${product.id})" style="background: none; border: none; font-size: 18px; cursor: pointer;">✏️</button>
+                            <button onclick="deleteProduct(${product.id})" style="background: none; border: none; font-size: 18px; cursor: pointer;">🗑️</button>
+                        </div>
+                    </div>
+                    <div style="font-size: 14px;">
+                        <div>Stock: ${product.stock} | Precio: ${product.price}</div>
+                        <div>Costo: ${product.cost} | Vence: ${new Date(product.expiry).toLocaleDateString('es-MX')}</div>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        function showProductModal(product = null) {
+            if (product) {
+                document.getElementById('modalTitle').textContent = 'Editar Producto';
+                document.getElementById('productId').value = product.id;
+                document.getElementById('productName').value = product.name;
+                document.getElementById('productStock').value = product.stock;
+                document.getElementById('productCost').value = product.cost;
+                document.getElementById('productPrice').value = product.price;
+                document.getElementById('productExpiry').value = product.expiry;
+            } else {
+                document.getElementById('modalTitle').textContent = 'Nuevo Producto';
+                document.getElementById('productForm').reset();
+                document.getElementById('productId').value = '';
+            }
+            
+            document.getElementById('productModal').classList.add('active');
+        }
+        
+        function hideProductModal() {
+            document.getElementById('productModal').classList.remove('active');
+        }
+        
+        function editProduct(id) {
+            const product = state.inventory.find(p => p.id === id);
+            if (product) {
+                showProductModal(product);
+            }
+        }
+        
+        function deleteProduct(id) {
+            if (confirm('¿Eliminar producto?')) {
+                state.inventory = state.inventory.filter(p => p.id !== id);
+                saveInventory();
+                renderInventory();
+            }
+        }
+        
+        function saveProduct(event) {
+            event.preventDefault();
+            
+            const id = document.getElementById('productId').value;
+            const product = {
+                id: id ? parseInt(id) : Date.now(),
+                name: document.getElementById('productName').value,
+                stock: parseInt(document.getElementById('productStock').value),
+                cost: parseFloat(document.getElementById('productCost').value),
+                price: parseFloat(document.getElementById('productPrice').value),
+                expiry: document.getElementById('productExpiry').value
+            };
+            
+            if (id) {
+                // Editar
+                const index = state.inventory.findIndex(p => p.id === product.id);
+                if (index !== -1) {
+                    state.inventory[index] = product;
+                }
+            } else {
+                // Nuevo
+                if (state.inventory.length >= 50) {
+                    alert('Máximo 50 productos');
+                    return;
+                }
+                state.inventory.push(product);
+            }
+            
+            saveInventory();
+            renderInventory();
+            hideProductModal();
+        }
+        
+        // Verificar medianoche
+        function checkMidnight() {
+            const now = new Date();
+            if (now.getHours() === 0 && now.getMinutes() === 0) {
+                state.sales = [];
+                saveSales();
+                updateSummary();
+                renderSales();
+            }
+        }
+        
+        // Funciones de Backup
+        function exportarInventario() {
+            if (state.inventory.length === 0) {
+                alert('No hay productos para exportar');
+                return;
+            }
+            
+            const backup = {
+                version: '1.0',
+                fecha: new Date().toLocaleString('es-MX'),
+                totalProductos: state.inventory.length,
+                productos: state.inventory
+            };
+            
+            const textoBackup = JSON.stringify(backup);
+            
+            // Intentar copiar al portapapeles
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(textoBackup).then(() => {
+                    alert(`✅ Inventario copiado!\n\n${state.inventory.length} productos guardados.\n\nPégalo en WhatsApp, Notas o cualquier app para guardarlo.`);
+                }).catch(() => {
+                    // Fallback si falla el portapapeles
+                    mostrarTextoParaCopiar(textoBackup);
+                });
+            } else {
+                // Fallback para navegadores sin soporte
+                mostrarTextoParaCopiar(textoBackup);
+            }
+        }
+        
+        function mostrarTextoParaCopiar(texto) {
+            const textarea = document.createElement('textarea');
+            textarea.value = texto;
+            textarea.style.position = 'fixed';
+            textarea.style.opacity = '0';
+            document.body.appendChild(textarea);
+            textarea.select();
+            
+            try {
+                document.execCommand('copy');
+                alert('✅ Inventario copiado! Pégalo en un lugar seguro.');
+            } catch (err) {
+                prompt('Copia este texto manualmente:', texto);
+            }
+            
+            document.body.removeChild(textarea);
+        }
+        
+        function mostrarImportDialog() {
+            const textoBackup = prompt('Pega aquí el texto de tu inventario guardado:');
+            
+            if (!textoBackup) return;
+            
+            try {
+                const backup = JSON.parse(textoBackup);
+                
+                if (!backup.productos || !Array.isArray(backup.productos)) {
+                    throw new Error('Formato inválido');
+                }
+                
+                const confirmacion = confirm(
+                    `¿Restaurar inventario?\n\n` +
+                    `Fecha del backup: ${backup.fecha || 'Desconocida'}\n` +
+                    `Productos a restaurar: ${backup.productos.length}\n\n` +
+                    `⚠️ Esto REEMPLAZARÁ tu inventario actual`
+                );
+                
+                if (confirmacion) {
+                    state.inventory = backup.productos;
+                    saveInventory();
+                    renderInventory();
+                    updateSaleProductList();
+                    alert(`✅ ¡Inventario restaurado!\n\n${backup.productos.length} productos cargados.`);
+                }
+                
+            } catch (error) {
+                alert('❌ Error: El texto no es válido.\n\nAsegúrate de copiar TODO el texto del backup.');
+            }
+        }
+        
+        // Función de Feedback por WhatsApp
+        function enviarFeedback() {
+            // Calcular días de uso
+            const diasUso = calcularDiasUso();
+            
+            // Recopilar estadísticas
+            const ventasHoy = state.sales.length;
+            const totalVentasHoy = state.sales.reduce((sum, s) => sum + s.total, 0);
+            const totalProductos = state.inventory.length;
+            
+            // Crear mensaje
+            const mensaje = `🏪 *Feedback Mi Tiendita*\n\n` +
+                `📊 *Mis estadísticas:*\n` +
+                `• Días usando la app: ${diasUso}\n` +
+                `• Productos en inventario: ${totalProductos}\n` +
+                `• Ventas registradas hoy: ${ventasHoy}\n` +
+                `• Total vendido hoy: ${totalVentasHoy.toFixed(2)}\n\n` +
+                `💭 *Mi experiencia:*\n` +
+                `(Escribe aquí qué te gusta, qué mejorarías o cualquier comentario)\n\n` +
+                `⭐ *Calificación:* _/5`;
+            
+            // Tu número de WhatsApp (cambia esto por tu número real)
+            const numeroWhatsApp = '525564290144'; // Formato: código país + número
+            
+            // Crear URL de WhatsApp
+            const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
+            
+            // Abrir WhatsApp
+            window.open(url, '_blank');
+        }
+        
+        function calcularDiasUso() {
+            let primerUso = localStorage.getItem('tiendita_primer_uso');
+            
+            if (!primerUso) {
+                // Primera vez que usa la app
+                primerUso = new Date().toISOString();
+                localStorage.setItem('tiendita_primer_uso', primerUso);
+                return 0;
+            }
+            
+            // Calcular días transcurridos
+            const fechaInicio = new Date(primerUso);
+            const fechaHoy = new Date();
+            const diferencia = fechaHoy - fechaInicio;
+            const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+            
+            return dias;
+        }
+        
+        // Función para capturar ventas del día
+        function capturarVentas() {
+            // Crear un canvas temporal para la captura
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            
+            // Configurar tamaño del canvas (tamaño de pantalla móvil)
+            canvas.width = 400;
+            canvas.height = 600;
+            
+            // Fondo blanco
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Configurar fuente
+            ctx.fillStyle = '#1f2937';
+            ctx.font = 'bold 24px Arial';
+            ctx.textAlign = 'center';
+            
+            // Título principal
+            ctx.fillText('Mi Tiendita', canvas.width / 2, 40);
+            
+            // Fecha
+            const fecha = new Date().toLocaleDateString('es-MX', { 
+                weekday: 'long', 
+                day: 'numeric', 
+                month: 'long',
+                year: 'numeric'
+            });
+            ctx.font = '16px Arial';
+            ctx.fillStyle = '#6b7280';
+            ctx.fillText(fecha, canvas.width / 2, 70);
+            
+            // Línea separadora
+            ctx.strokeStyle = '#e5e7eb';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(30, 90);
+            ctx.lineTo(370, 90);
+            ctx.stroke();
+            
+            // Resumen del día
+            ctx.font = 'bold 18px Arial';
+            ctx.fillStyle = '#1f2937';
+            ctx.textAlign = 'left';
+            ctx.fillText('📊 Resumen del Día', 30, 120);
+            
+            // Calcular totales
+            const summary = state.sales.reduce((acc, sale) => {
+                acc.totalSales += sale.total;
+                acc.totalProfit += (sale.total - (sale.cost * sale.quantity));
+                acc.totalProducts += sale.quantity;
+                return acc;
+            }, { totalSales: 0, totalProfit: 0, totalProducts: 0 });
+            
+            // Mostrar resumen
+            ctx.font = '14px Arial';
+            ctx.fillStyle = '#374151';
+            let yPos = 150;
+            
+            ctx.fillText(`💰 Total Ventas: ${summary.totalSales.toFixed(2)}`, 40, yPos);
+            yPos += 25;
+            ctx.fillStyle = '#10b981';
+            ctx.fillText(`💚 Ganancias: ${summary.totalProfit.toFixed(2)}`, 40, yPos);
+            yPos += 25;
+            ctx.fillStyle = '#374151';
+            ctx.fillText(`📦 Productos vendidos: ${summary.totalProducts}`, 40, yPos);
+            yPos += 40;
+            
+            // Lista de ventas
+            if (state.sales.length > 0) {
+                ctx.font = 'bold 16px Arial';
+                ctx.fillStyle = '#1f2937';
+                ctx.fillText('🧾 Detalle de Ventas', 30, yPos);
+                yPos += 30;
+                
+                ctx.font = '12px Arial';
+                ctx.fillStyle = '#374151';
+                
+                state.sales.forEach((sale, index) => {
+                    if (yPos > 550) return; // Evitar que se salga del canvas
+                    
+                    // Nombre del producto y hora
+                    ctx.fillText(`${sale.time} - ${sale.productName}`, 40, yPos);
+                    yPos += 15;
+                    
+                    // Cantidad y total
+                    ctx.fillStyle = '#6b7280';
+                    ctx.fillText(`   ${sale.quantity} unidades × ${sale.price} = ${sale.total.toFixed(2)}`, 40, yPos);
+                    yPos += 20;
+                    
+                    ctx.fillStyle = '#374151';
+                });
+            } else {
+                ctx.font = '14px Arial';
+                ctx.fillStyle = '#9ca3af';
+                ctx.textAlign = 'center';
+                ctx.fillText('No hay ventas registradas hoy', canvas.width / 2, yPos);
+            }
+            
+            // Pie de página
+            ctx.font = '12px Arial';
+            ctx.fillStyle = '#9ca3af';
+            ctx.textAlign = 'center';
+            ctx.fillText('Generado por Mi Tiendita', canvas.width / 2, canvas.height - 20);
+            
+            // Convertir canvas a imagen y descargar
+            try {
+                // Crear enlace de descarga
+                const link = document.createElement('a');
+                link.download = `ventas_${new Date().toISOString().split('T')[0]}.png`;
+                link.href = canvas.toDataURL('image/png');
+                
+                // Simular clic para descargar
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                
+                alert('📸 ¡Captura guardada!\n\nLa imagen se descargó en tu dispositivo.\nPuedes encontrarla en la carpeta de Descargas.');
+                
+            } catch (error) {
+                // Fallback: mostrar la imagen en una nueva ventana
+                const newWindow = window.open();
+                newWindow.document.write(`
+                    <html>
+                        <head><title>Ventas del Día - Mi Tiendita</title></head>
+                        <body style="margin: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; background: #f3f4f6;">
+                            <div style="text-align: center;">
+                                <img src="${canvas.toDataURL('image/png')}" style="max-width: 100%; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                                <p style="margin-top: 20px; color: #6b7280;">Haz clic derecho en la imagen y selecciona "Guardar imagen como..."</p>
+                            </div>
+                        </body>
+                    </html>
+                `);
+                newWindow.document.close();
+            }
+        }
     </script>
 </body>
-</html>
+</html
