@@ -377,11 +377,219 @@
             font-size: 12px;
             font-weight: bold;
         }
+
+        /* Privacy Section */
+        .privacy {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .privacy-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .privacy-header h2 {
+            font-size: 2.5rem;
+            color: #1e293b;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .shield-icon {
+            font-size: 3rem;
+            color: #10b981;
+            filter: drop-shadow(0 4px 8px rgba(16, 185, 129, 0.3));
+        }
+
+        .privacy-header p {
+            font-size: 1.2rem;
+            color: #64748b;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .trust-badges {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .trust-badge {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 4px 25px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 2px solid #e2e8f0;
+        }
+
+        .trust-badge:hover {
+            transform: translateY(-5px);
+            border-color: #10b981;
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.15);
+        }
+
+        .trust-badge-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #10b981;
+        }
+
+        .trust-badge h3 {
+            font-size: 1.3rem;
+            color: #1e293b;
+            margin-bottom: 10px;
+        }
+
+        .trust-badge p {
+            color: #64748b;
+            font-size: 0.95rem;
+        }
+
+        .privacy-details {
+            background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            border: 1px solid #bbf7d0;
+        }
+
+        .privacy-details h3 {
+            color: #065f46;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .privacy-list {
+            list-style: none;
+            counter-reset: privacy-counter;
+        }
+
+        .privacy-list li {
+            counter-increment: privacy-counter;
+            margin-bottom: 15px;
+            padding-left: 50px;
+            position: relative;
+            color: #047857;
+            font-weight: 500;
+        }
+
+        .privacy-list li::before {
+            content: counter(privacy-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: #10b981;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .tech-explanation {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            border: 1px solid #fbbf24;
+        }
+
+        .tech-explanation h3 {
+            color: #92400e;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .tech-item {
+            background: rgba(255, 255, 255, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #f59e0b;
+        }
+
+        .tech-item h4 {
+            color: #92400e;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .tech-item p {
+            color: #78716c;
+            font-size: 0.95rem;
+        }
+
+        .guarantee-banner {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .guarantee-banner h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #10b981;
+        }
+
+        .contact-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .contact-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
         
         /* Testimonials */
         .testimonials {
             padding: 80px 0;
-            background: white;
+            background: #f8fafc;
         }
         
         .testimonials-grid {
@@ -392,11 +600,12 @@
         }
         
         .testimonial {
-            background: #f8fafc;
+            background: white;
             padding: 30px;
             border-radius: 15px;
             text-align: center;
             position: relative;
+            box-shadow: 0 4px 25px rgba(0,0,0,0.08);
         }
         
         .testimonial::before {
@@ -531,6 +740,20 @@
             .container {
                 padding: 0 15px;
             }
+
+            .privacy-header h2 {
+                font-size: 2rem;
+                flex-direction: column;
+            }
+
+            .contact-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .trust-badges {
+                grid-template-columns: 1fr;
+            }
         }
         
         /* Smooth scrolling */
@@ -569,6 +792,7 @@
                 <li><a href="#caracteristicas">Características</a></li>
                 <li><a href="#demo">Demo</a></li>
                 <li><a href="#manual">Manual</a></li>
+                <li><a href="#privacidad">Privacidad</a></li>
                 <li><a href="#testimonios">Testimonios</a></li>
             </ul>
         </nav>
@@ -685,22 +909,6 @@
             <div class="manual-grid">
                 <div class="manual-card">
                     <div class="manual-header">
-                        <span style="font-size: 2rem;">🏠</span>
-                        <h3>Comenzando</h3>
-                        <p>Primeros pasos</p>
-                    </div>
-                    <div class="manual-body">
-                        <ol class="manual-steps">
-                            <li>Abre StoreFlow en tu navegador</li>
-                            <li>Verás productos de ejemplo ya cargados</li>
-                            <li>Explora el dashboard con tu resumen del día</li>
-                            <li>Usa la calculadora para probar márgenes</li>
-                        </ol>
-                    </div>
-                </div>
-                
-                <div class="manual-card">
-                    <div class="manual-header">
                         <span style="font-size: 2rem;">📦</span>
                         <h3>Gestión de Inventario</h3>
                         <p>Productos y stock</p>
@@ -782,6 +990,104 @@
         </div>
     </section>
 
+    <!-- Privacy Section -->
+    <section id="privacidad" class="privacy">
+        <div class="container">
+            <div class="privacy-header">
+                <h2>
+                    <span class="shield-icon floating">🛡️</span>
+                    Tu Privacidad es Sagrada
+                </h2>
+                <p>StoreFlow respeta completamente tu privacidad. Aquí te explicamos de forma transparente cómo protegemos tus datos.</p>
+            </div>
+
+            <!-- Insignias de Confianza -->
+            <div class="trust-badges">
+                <div class="trust-badge">
+                    <div class="trust-badge-icon">🔒</div>
+                    <h3>100% Local</h3>
+                    <p>Todos tus datos se guardan únicamente en TU dispositivo. Nunca salen de tu teléfono o computadora.</p>
+                </div>
+
+                <div class="trust-badge">
+                    <div class="trust-badge-icon">🚫</div>
+                    <h3>Cero Acceso Remoto</h3>
+                    <p>No puedo acceder a tu teléfono, ver tus datos o conectarme remotamente. Es técnicamente imposible.</p>
+                </div>
+
+                <div class="trust-badge">
+                    <div class="trust-badge-icon">👁️</div>
+                    <h3>Sin Espionaje</h3>
+                    <p>StoreFlow no puede ver tu información personal, contactos, fotos o cualquier otro dato privado.</p>
+                </div>
+
+                <div class="trust-badge">
+                    <div class="trust-badge-icon">🌐</div>
+                    <h3>Sin Internet Requerido</h3>
+                    <p>La app funciona completamente offline. Tus datos nunca viajan por internet sin tu consentimiento.</p>
+                </div>
+            </div>
+
+            <!-- Detalles de Privacidad -->
+            <div class="privacy-details">
+                <h3>
+                    <span>✅</span>
+                    Lo que SÍ hace StoreFlow
+                </h3>
+                <ol class="privacy-list">
+                    <li>Guarda tu inventario y ventas únicamente en tu dispositivo</li>
+                    <li>Te permite hacer backup manual copiando texto (que TÚ controlas)</li>
+                    <li>Funciona completamente sin conexión a internet</li>
+                    <li>Te da control total sobre tus datos comerciales</li>
+                    <li>Recolecta estadísticas anónimas de uso (solo para mejorar la app)</li>
+                </ol>
+            </div>
+
+            <!-- Explicación Técnica -->
+            <div class="tech-explanation">
+                <h3>
+                    <span>🔧</span>
+                    ¿Cómo es esto técnicamente posible?
+                </h3>
+                <div class="tech-grid">
+                    <div class="tech-item">
+                        <h4>🗄️ LocalStorage</h4>
+                        <p>Tus datos se guardan en el "localStorage" de tu navegador, que es como una caja fuerte digital en tu dispositivo.</p>
+                    </div>
+
+                    <div class="tech-item">
+                        <h4>📱 Sin Servidor</h4>
+                        <p>StoreFlow no tiene servidor donde guardar datos. Todo funciona en tu dispositivo, como una calculadora.</p>
+                    </div>
+
+                    <div class="tech-item">
+                        <h4>🔐 Sin Login</h4>
+                        <p>No necesitas crear cuenta, dar email o contraseñas. Simplemente abres y usas la app.</p>
+                    </div>
+
+                    <div class="tech-item">
+                        <h4>📊 Analytics Anónimos</h4>
+                        <p>Solo recolecto datos generales como "un usuario registró una venta" sin saber quién eres o qué vendiste.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Banner de Garantía -->
+            <div class="guarantee-banner">
+                <h3>🤝 Mi Garantía Personal</h3>
+                <p><strong>David, creador de StoreFlow:</strong> "Tu privacidad es más importante que cualquier dato que pudiera recolectar. StoreFlow está diseñado para darte control total y tranquilidad absoluta. Si alguna vez tienes dudas, escríbeme personalmente."</p>
+                <div class="contact-buttons">
+                    <a href="https://wa.me/525564290144" class="contact-btn" target="_blank">
+                        <span>💬</span> WhatsApp
+                    </a>
+                    <a href="mailto:tienda.appweb369@gmail.com" class="contact-btn">
+                        <span>📧</span> Email
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Testimonials -->
     <section id="testimonios" class="testimonials">
         <div class="container">
@@ -835,6 +1141,7 @@
                     <a href="#caracteristicas">Características</a>
                     <a href="#demo">Demo</a>
                     <a href="#manual">Manual</a>
+                    <a href="#privacidad">Privacidad</a>
                     <a href="#testimonios">Testimonios</a>
                 </div>
                 
@@ -900,7 +1207,7 @@
         }, observerOptions);
 
         // Observe all cards and sections
-        document.querySelectorAll('.feature-card, .manual-card, .testimonial').forEach(el => {
+        document.querySelectorAll('.feature-card, .manual-card, .testimonial, .trust-badge').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';
             el.style.transition = 'all 0.6s ease';
@@ -908,4 +1215,20 @@
         });
     </script>
 </body>
-</html>
+</html>d">
+                    <div class="manual-header">
+                        <span style="font-size: 2rem;">🏠</span>
+                        <h3>Comenzando</h3>
+                        <p>Primeros pasos</p>
+                    </div>
+                    <div class="manual-body">
+                        <ol class="manual-steps">
+                            <li>Abre StoreFlow en tu navegador</li>
+                            <li>Verás productos de ejemplo ya cargados</li>
+                            <li>Explora el dashboard con tu resumen del día</li>
+                            <li>Usa la calculadora para probar márgenes</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="manual-car
