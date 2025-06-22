@@ -479,6 +479,222 @@
             font-weight: bold;
             color: #1e293b;
         }
+
+        /* Support Section */
+        .support-section {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 50%, #4facfe 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .support-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="heart" width="20" height="20" patternUnits="userSpaceOnUse"><text x="10" y="15" text-anchor="middle" fill="rgba(255,255,255,0.1)" font-size="12">❤️</text></pattern></defs><rect width="100" height="100" fill="url(%23heart)"/></svg>') repeat;
+        }
+
+        .support-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .support-header {
+            margin-bottom: 50px;
+        }
+
+        .support-title {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .support-subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 20px auto;
+            line-height: 1.6;
+        }
+
+        .free-emphasis {
+            background: rgba(255,255,255,0.2);
+            padding: 15px 30px;
+            border-radius: 50px;
+            display: inline-block;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-top: 15px;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .support-main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        .support-text {
+            text-align: left;
+        }
+
+        .support-description {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .support-benefits {
+            background: rgba(255,255,255,0.15);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+            border: 1px solid rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .benefits-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        .benefit-icon {
+            margin-right: 12px;
+            font-size: 1.2rem;
+        }
+
+        .product-showcase {
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 30px;
+            border: 2px solid rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+            color: white;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .product-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .product-description {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .product-price {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #FFD700;
+            margin-bottom: 20px;
+        }
+
+        .cta-buttons-support {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .support-btn {
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .support-btn-primary {
+            background: #fff;
+            color: #f5576c;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .support-btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        .support-btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .support-btn-secondary:hover {
+            background: white;
+            color: #f5576c;
+        }
+
+        .optional-note {
+            background: rgba(0,0,0,0.2);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 30px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .optional-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #FFD700;
+        }
+
+        .optional-text {
+            font-size: 1rem;
+            opacity: 0.9;
+            line-height: 1.5;
+        }
         
         /* CTA Section */
         .final-cta {
@@ -590,6 +806,24 @@
             
             .container {
                 padding: 0 15px;
+            }
+
+            .support-title { 
+                font-size: 2.2rem; 
+            }
+            
+            .support-subtitle { 
+                font-size: 1.1rem; 
+            }
+            
+            .support-main-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+            
+            .support-text { 
+                text-align: center; 
             }
         }
         
@@ -709,45 +943,6 @@
                 <p>Sabemos que manejas información sensible de tu negocio. Por eso garantizamos la máxima seguridad y privacidad de tus datos comerciales.</p>
             </div>
             
-            <!-- Diferenciación clara y transparente -->
-            <div style="background: #fef3c7; border: 2px solid #d97706; border-radius: 15px; padding: 25px; margin-bottom: 40px;">
-                <h3 style="color: #92400e; margin-bottom: 15px; text-align: center;">🔍 TRANSPARENCIA TOTAL SOBRE DATOS</h3>
-                <div style="background: #fffbeb; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
-                    <h4 style="color: #92400e; margin-bottom: 15px; text-align: center;">📊 SÍ USAMOS ANALYTICS - Aquí te explicamos exactamente qué y por qué</h4>
-                    
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
-                        <div style="background: #fef3c7; padding: 15px; border-radius: 8px; border-left: 4px solid #d97706;">
-                            <h5 style="color: #92400e; margin-bottom: 10px;">🌐 PÁGINA WEB (donde estás ahora)</h5>
-                            <p style="color: #78350f; font-size: 13px; margin: 0;">
-                            • Analytics básicos de navegación<br>
-                            • Para mejorar el diseño del sitio<br>
-                            • No guardamos datos personales</p>
-                        </div>
-                        <div style="background: #fef3c7; padding: 15px; border-radius: 8px; border-left: 4px solid #d97706;">
-                            <h5 style="color: #92400e; margin-bottom: 10px;">📱 APLICACIÓN StoreFlow</h5>
-                            <p style="color: #78350f; font-size: 13px; margin: 0;">
-                            • Analytics de uso de funciones<br>
-                            • Para mejorar la experiencia<br>
-                            • NO accedemos a tus datos comerciales</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div style="background: #dcfce7; padding: 20px; border-radius: 10px; border: 2px solid #16a34a;">
-                    <h4 style="color: #15803d; margin-bottom: 15px; text-align: center;">✅ LO QUE SÍ GARANTIZAMOS AL 100%</h4>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-                        <div>
-                            <p style="color: #166534; font-size: 14px; margin: 5px 0;"><strong>🔒 Tus datos comerciales:</strong></p>
-                            <p style="color: #166534; font-size: 12px; margin: 0;">• Inventario privado<br>• Ventas privadas<br>• Precios privados<br>• Todo en TU dispositivo</p>
-                        </div>
-                        <div>
-                            <p style="color: #166534; font-size: 14px; margin: 5px 0;"><strong>🚫 Lo que NUNCA hacemos:</strong></p>
-                            <p style="color: #166534; font-size: 12px; margin: 0;">• Ver tu inventario<br>• Leer tus ventas<br>• Acceder a tus precios<br>• Vender tus datos</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
             <div class="privacy-grid">
                 <div class="privacy-card">
                     <h3>🔐 Tus Datos Comerciales Son Sagrados</h3>
@@ -783,10 +978,6 @@
             <div class="privacy-highlight">
                 <h3>✅ Nuestra Promesa de Privacidad</h3>
                 <p><strong>GARANTIZAMOS:</strong> Jamás vendemos, compartimos o accedemos a tus datos comerciales (inventario, ventas, precios). Usamos analytics solo para mejorar la funcionalidad de la app, con configuraciones de máxima privacidad y sin acceso a tu información de negocio.</p>
-                
-                <div style="margin-top: 15px; padding: 15px; background: #f0f9ff; border-radius: 8px;">
-                    <p style="color: #0c4a6e; font-size: 14px; margin: 0;"><strong>🔍 ¿Qué vemos exactamente?</strong> Datos como "usuario usó calculadora", "se registró una venta", "se agregó un producto". <strong>NO vemos</strong> qué producto, a qué precio, o cuánto ganaste.</p>
-                </div>
             </div>
         </div>
     </section>
@@ -960,6 +1151,95 @@
         </div>
     </section>
 
+    <!-- Support Section -->
+    <section class="support-section">
+        <div class="support-content">
+            <div class="support-header">
+                <h2 class="support-title">💝 Apoya el Proyecto StoreFlow</h2>
+                <p class="support-subtitle">
+                    Ayúdanos a seguir desarrollando herramientas gratuitas para emprendedores mexicanos como tú
+                </p>
+                <div class="free-emphasis">
+                    🎁 StoreFlow siempre será 100% GRATUITO
+                </div>
+            </div>
+            
+            <div class="support-main-content">
+                <div class="support-text">
+                    <p class="support-description">
+                        <strong>¡Hola emprendedor!</strong> StoreFlow es y siempre será completamente gratis para ti. No tienes que pagar nada para usar todas las funcionalidades.
+                    </p>
+                    
+                    <p class="support-description">
+                        Sin embargo, si tienes la posibilidad y quieres apoyar el crecimiento del proyecto, tenemos una forma especial de hacerlo: <strong>una lona profesional para tu tienda</strong>.
+                    </p>
+                    
+                    <div class="support-benefits">
+                        <div class="benefits-title">
+                            🚀 Tu apoyo nos ayuda a:
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-icon">💻</span>
+                            <span>Desarrollar nuevas funcionalidades</span>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-icon">🔧</span>
+                            <span>Mantener la app actualizada y segura</span>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-icon">📱</span>
+                            <span>Crear versiones móviles nativas</span>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-icon">🆘</span>
+                            <span>Ofrecer mejor soporte técnico</span>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-icon">🌟</span>
+                            <span>Ayudar a más emprendedores mexicanos</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-showcase">
+                    <div class="product-image">
+                        🏪 TIENDA ABARROTES 🏪<br>
+                        Lona Profesional
+                    </div>
+                    <div class="product-title">🏪 Lona Profesional para tu Tienda</div>
+                    <div class="product-description">
+                        Dale un aspecto profesional a tu negocio con nuestra lona de alta calidad. Personalizada con el nombre de tu tienda, resistente al clima y fácil de instalar.
+                    </div>
+                    <div class="product-price">Desde $399 MXN</div>
+                    
+                    <div class="cta-buttons-support">
+                        <a href="http://articulo.mercadolibre.com.mx/MLM-2349224933-lona-publicitaria-tienda-abarrotes-diseno-premium-precios-_JM" 
+                           class="support-btn support-btn-primary" 
+                           target="_blank"
+                           onclick="trackSupportClick('mercado_libre_from_website')">
+                            🛒 Ver en Mercado Libre
+                        </a>
+                        <a href="https://wa.me/525564290144?text=Hola%2C%20vi%20StoreFlow%20y%20me%20interesa%20la%20lona%20para%20mi%20tienda" 
+                           class="support-btn support-btn-secondary" 
+                           target="_blank"
+                           onclick="trackSupportClick('whatsapp_from_website')">
+                            💬 Preguntar por WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="optional-note">
+                <div class="optional-title">⭐ Importante: Es Completamente Opcional</div>
+                <div class="optional-text">
+                    No necesitas comprar nada para seguir usando StoreFlow. La aplicación es y seguirá siendo gratuita para todos. 
+                    Solo si tienes la posibilidad y quieres una lona para tu negocio, estarías apoyando indirectamente el proyecto. 
+                    <strong>¡Gracias por ser parte de la comunidad StoreFlow!</strong> 🙏
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Final CTA -->
     <section class="final-cta">
         <div class="container">
@@ -1012,6 +1292,20 @@
     </footer>
 
     <script>
+        // Función para trackear clics en enlaces de apoyo
+        function trackSupportClick(action) {
+            // Usar Google Analytics si está disponible
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'support_section_click', {
+                    'action': action,
+                    'section': 'website_support',
+                    'link_type': action.includes('mercado') ? 'mercado_libre' : 'whatsapp'
+                });
+            }
+            
+            console.log('Support click tracked:', action);
+        }
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -1047,12 +1341,21 @@
                 if (entry.isIntersecting) {
                     entry.target.style.opacity = '1';
                     entry.target.style.transform = 'translateY(0)';
+                    
+                    // Si es la sección de apoyo, trackear visualización
+                    if (entry.target.classList.contains('support-section')) {
+                        if (typeof gtag !== 'undefined') {
+                            gtag('event', 'support_section_viewed', {
+                                'section': 'website_support'
+                            });
+                        }
+                    }
                 }
             });
         }, observerOptions);
 
         // Observe all cards and sections
-        document.querySelectorAll('.feature-card, .manual-card, .testimonial, .privacy-card').forEach(el => {
+        document.querySelectorAll('.feature-card, .manual-card, .testimonial, .privacy-card, .support-section').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';
             el.style.transition = 'all 0.6s ease';
